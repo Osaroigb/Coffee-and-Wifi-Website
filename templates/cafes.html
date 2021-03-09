@@ -1,0 +1,52 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Restaurants{% endblock %}
+
+{% block styles -%}
+    {{super()}}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+
+          <h1>All Cafes</h1>
+
+          <ul class="cafes">
+              {% for cafe in cafes: %}
+              <li>
+                  <img src="{{cafe.img_url}}" alt="Cafe Picture">
+                  <h2>{{ cafe.name }}</h2>
+                  <p>🕒 {{ cafe.open_time }} - {{ cafes[11].close_time }}</p>
+                  <p>📍 {{ cafe.location }}</p>
+                  <a href={{cafe.map_url}} target="_blank">Maps Link</a>
+                  <p>{{ cafe.coffee_price }} per cup</p>
+                  {% if cafe.has_sockets: %}
+                    <p class="bool">🔌</p>
+                  {% endif %}
+                  {% if cafe.has_toilet: %}
+                    <p class="bool">🚽</p>
+                  {% endif %}
+                  {% if cafe.has_wifi: %}
+                    <p class="bool">📶</p>
+                  {% endif %}
+                  {% if cafe.can_take_calls: %}
+                    <p class="bool">📞</p>
+                  {% endif %}
+                  <p>{{ cafe.seats }} seats</p>
+                  <a class="btn btn-danger btn-lg" href="{{ url_for('delete_cafe', index=cafe.id) }}"
+                     role="button">Delete Cafe</a>
+              </li>
+              {% endfor %}
+          </ul>
+
+
+          <a class="btn btn-warning btn-lg" href="{{ url_for('add_cafe') }}" role="button">Add Cafe</a>
+          <p><a href="{{ url_for('home') }}">Return to index page</a></p>
+
+        </div>
+      </div>
+    </div>
+{% endblock %}

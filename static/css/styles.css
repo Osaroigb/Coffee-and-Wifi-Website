@@ -1,0 +1,57 @@
+/* This CSS file will need to be added to the styling of 
+your web pages for the styles to be rendered. */
+
+body {
+background-color: #333;
+color: white;
+}
+
+a {
+    color: #ffc107;
+}
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  color: white;
+  background-color: #333;
+}
+
+.space-above {
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+/* Personal Styling */
+
+.cafes {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.cafes li {
+    margin-bottom: 40px;
+}
+
+.cafes img {
+    height: 280px;
+    width: 400px;
+    float: left;
+    padding-right: 15px;
+}
+
+.cafes p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bool {
+    display: inline;
+    margin-right: 15px;
+}
+
+.btn{
+    margin-bottom: 20px;
+}
