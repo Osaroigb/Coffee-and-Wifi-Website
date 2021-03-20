@@ -5,15 +5,16 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, URL
 import requests
+import os
 
 # setup flask application
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"
+app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
 Bootstrap(app)
 
 # request parameter
 cafe_parameter = {
-    "api-key": "TopSecretAPIKey"
+    "api-key": os.environ["API_KEY"]
 }
 
 # request header
